@@ -48,9 +48,77 @@ jobs:
           sudo rm -rf /usr/share/dotnet /opt/ghc
           docker rmi $(docker images -q) || true
            # 移除其他不需要的软件包
-          sudo apt-get purge -y '^ghc' '^llvm' 'swift' 'google-cloud-sdk' 'firefox' 'google-chrome-stable'
-          sudo apt-get autoremove -y
+          sudo apt-get purge -y \
+          adoptium-ca-certificates \
+          ant ant-optional \
+          apache2* \
+          aria2 \
+          azure-cli \
+          bison \
+          buildah \
+          byobu \
+          clang-* \
+          cloud-init \
+          cpp-12 cpp-13 \
+          firebird* \
+          firefox \
+          flex \
+          g\+\+-12 g\+\+-13 \
+          gfortran* \
+          gh \
+          ghc* \
+          git-ftp \
+          google-chrome-stable \
+          google-cloud-cli* \
+          haveged \
+          htop \
+          imagemagick* \
+          kubectl \
+          libaom* libavahi* libavif* libgdk* libgtk* libheif* libjbig* libjpeg* liblcms* liblerc* liblqr* libmng* libmspack* libopenjp2* libpng* libraw* librsvg* libtiff* libwebp* \
+          libasound* \
+          libclang* \
+          libllvm* \
+          libmysqlclient* \
+          libpq* \
+          libruby* \
+          libvulkan* \
+          libx11* libxau* libxcb* libxcomposite* libxcursor* libxdamage* libxdmcp* libxext* libxfixes* libxfont* libxft* libxi* libxinerama* libxkb* libxml2* libxmu* libxpm* libxrandr* libxrender* libxss* libxt* libxtst* libxxf86vm* \
+          lld-* \
+          llvm-* \
+          mercurial* \
+          microsoft-edge-stable \
+          mlock \
+          modemmanager \
+          mysql-* \
+          nginx* \
+          php* \
+          podman \
+          pollinate \
+          postgresql-* \
+          powershell \
+          rake \
+          ruby* \
+          session-manager-plugin \
+          skopeo \
+          snapd \
+          snmp \
+          sosreport \
+          sphinxsearch \
+          swig \
+          sysstat \
+          temurin-11-jdk temurin-17-jdk temurin-8-jdk temurin-25-jdk \
+          tex-common texinfo \
+          tmux \
+          tree \
+          ufw \
+          upx-ucl \
+          vim \
+          walinuxagent \
+          x11-common xauth xdg-user-dirs xdg-utils xvfb \
+          zsync && \
+          sudo apt-get autoremove -y && \
           sudo apt-get clean
+
 
       - name: after Free up disk space
         run: |
